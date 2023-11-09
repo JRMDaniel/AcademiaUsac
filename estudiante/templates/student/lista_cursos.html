@@ -1,0 +1,36 @@
+{% extends "student/baseperfil.html" %}
+{%load static%}
+{% block content %}
+            <!-- Table Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <table class="table">
+    
+    <h1>Lista de Cursos del Segundo Semestre</h1>
+    {%if user.is_authenticated %} <!--Para verificar si esta dentro-->
+    <h9> Hola "{{user.username}}", aquí puedes asignarte a tus cursos </h9> <!--Mostroar el nombre del usuario-->
+    {% endif %}
+
+    <ul>
+      {% for curso in cursos %}
+        <li>
+          <h2>{{ curso.nombre }}</h2>
+          <p>Descripción: {{ curso.descripcion }}</p>
+          <p>Precio: {{ curso.precio }}</p>
+          <p>Cupo Total: {{ curso.cupo }}</p>
+          <p>Cupos Disponibles: {{ curso.cupos_disponibles }}</p>
+          {% if request.user not in curso.estudiantes_inscritos.all %}
+            <form method="post" action="{% url 'inscribirse_a_curso' curso.id %}">
+              {% csrf_token %}
+              <button type="submit" {% if curso.cupos_disponibles <= 0 %}disabled{% endif %}>
+                Inscribirse en el curso
+              </button>
+            </form>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+    
+{% endblock %}

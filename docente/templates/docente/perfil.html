@@ -1,0 +1,10 @@
+<h1>Información del usuario</h1>
+<p>Nombre de usuario: {{ usuario.username }}</p>
+<p>Nombre completo: {{ usuario.first_name }} {{ usuario.last_name }}</p>
+<p>Correo: {{ usuario.email }} </p>
+<h2>Grupos del usuario:</h2>
+<ul>
+    {% for grupo in grupos_del_usuario %}
+        <li>{{ grupo.name }}</li>
+    {% endfor %}
+</ul>

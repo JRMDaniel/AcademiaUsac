@@ -1,0 +1,89 @@
+{% extends "docente/baseperfil.html" %}
+{% load static %}
+{% block content %}
+
+            <!-- Sale & Revenue Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-3">
+
+    
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="btn btn-lg btn-secondary m-2 rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <a href="{% url 'perfil' %}" class="">Perfil</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% if perms.estudiante.add_curso %}
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="btn btn-lg btn-secondary m-2 rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-area fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <a href="{% url 'agregar_curso'%}" class="">Agregar cursos</a>
+                                <h6 class="mb-0"></h6>
+                            </div>
+                        </div>
+                    </div>{%endif %}
+
+
+
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="btn btn-lg btn-secondary m-2 rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-area fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <a href="{% url 'listar_cursos'%}" class="">Listar cursos</a>
+                                <h6 class="mb-0"></h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% if perms.estudiante.add_curso %}
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="btn btn-lg btn-secondary m-2 rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-area fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <a href="{% url 'registro2'%}" class="">Agregar docente</a>
+                                <h6 class="mb-0"></h6>
+                            </div>
+                        </div>
+                    </div>{%endif %}
+
+                    
+
+                </div>
+            </div>
+            <!-- Sale & Revenue End -->
+
+
+            <!-- Widgets Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-12 col-md-6 col-xl-4">
+                        <div class="h-100 bg-secondary rounded p-4">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <h6 class="mb-0">Notificaciones</h6>
+                                <a href="#">Ver</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6 col-xl-4">
+                        <div class="h-100 bg-secondary rounded p-4">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h6 class="mb-0">Calendario</h6>
+                                <a href="#">Ver</a>
+                            </div>
+                            <div id="calender"></div>
+                        </div>
+                    </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Widgets End -->
+
+{% endblock %}            

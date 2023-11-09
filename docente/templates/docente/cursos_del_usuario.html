@@ -1,0 +1,23 @@
+<h1>Mis Cursos Inscritos</h1>
+<ul>
+  {% for curso in cursos_inscritos %}
+    <li>
+      <h2>{{ curso.nombre }}</h2>
+      <p>Descripción: {{ curso.descripcion }}</p>
+      <a href="#" onclick="abrirVentana('{{ curso.id }}')">Ver Detalles</a>
+    </li>
+    <form method="post" action="{% url 'eliminar_inscripcion' curso.id %}">
+        {% csrf_token %}
+        <button type="submit">Eliminar inscripción</button>
+    </form>     
+  {% endfor %}
+</ul>
+<script>
+    function abrirVentana(cursoId) {
+      // Generar la URL para ver los detalles del curso
+      var url = "{% url 'detalle_curso' 0 %}".replace("0", cursoId);
+
+      // Abrir una nueva ventana o pestaña
+      window.open(url, '_blank');
+    }
+  </script>

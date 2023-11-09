@@ -1,0 +1,11 @@
+<form method="post" action="{% url 'asignar_docente_a_curso' curso.id %}">
+    {% csrf_token %}
+    <label for="docente">Seleccionar Docente:</label>
+    <select name="docente_id" id="docente">
+        <option value="">Seleccionar un docente</option>
+        {% for docente in docentes %}
+            <option value="{{ docente.id }}">{{ docente.username }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Asignar Docente</button>
+</form>

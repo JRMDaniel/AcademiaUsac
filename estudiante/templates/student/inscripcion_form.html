@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inscripción en un curso</title>
+</head>
+<body>
+    <h1>Inscripción en un curso</h1>
+    
+    {%if user.is_authenticated %} <!--Para verificar si esta dentro-->
+    {{user.username}} <!--Mostroar el nombre del usuario-->
+    
+    {% else %}
+
+    {% endif%}
+
+    <form method="post">
+        {% csrf_token %}
+        <!-- Puedes agregar campos del formulario, por ejemplo, para el nombre del estudiante o información adicional si es necesario -->
+
+        <!-- Agrega otros campos según tus necesidades -->
+        
+        <input type="submit" value="Inscribirse en el curso">
+    </form>
+    
+    <p><a href="{% url 'cuenta' %}">Inicio</a></p>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{% extends "docente/baseperfil.html" %}
+{% load static %}
+{% block content %}
+            <!-- Table Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <h6 class="mb-4">Detalles de tus cursos</h6>
+  
+    <table class="table">
+
+
+    <h1>Detalles del Estudiante</h1>
+    <p><strong>Nombre de Usuario:</strong> {{ estudiante.username }}</p>
+    <p><strong>Nombre y apellido:</strong> {{ estudiante.first_name }} {{ estudiante.last_name }}</p>
+    <p><strong>Correo Electrónico:</strong> {{ estudiante.email }}</p>
+    <p><strong>Nota:</strong> {{ nota.valor}}</p>
+    <a href="{% url 'estudiantes_inscritos'%}">Regresar</a><br>
+    <a href="#">Editar nota</a>
+    <p><a href="{% url 'editar_nota' nota.id %}">Editar nota</a></p>
+{% endblock %}

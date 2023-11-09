@@ -1,0 +1,9 @@
+Django==4.2.7 # para instalar django
+pillow #para las imagenes, que se cargen a la base de datos
+django-admin-interface #para modificar la pagina del administrador
+django-crispy-forms 
+django-crispy-forms #instalar crispy-forms
+django-admin-rangefilter #para crear una ventana emergente en admin
+openpyxl #permite crear y manupular archivos de excel en formato xlsx
+django-jazzmin #para modificar la pagina de administrador
+psycopg2

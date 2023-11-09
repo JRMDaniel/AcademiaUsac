@@ -1,0 +1,30 @@
+{% extends "student/baseperfil.html" %}
+{% block content %}
+
+<div class="" >
+    <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+            <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3"><h2>Agrega un nuevo curso</h2>
+                <div class="">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{ form }}
+    
+                        <div class="d-flex justify-content-center">
+    
+    
+                        <input type="reset" value="Cancelar" class="btn btn-secondary">
+                        <input type="submit" value="Modifcar" class="btn btn-primary">
+                        </div>
+                    </form>
+                {{mensaje}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

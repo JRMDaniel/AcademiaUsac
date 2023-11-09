@@ -1,0 +1,28 @@
+{% extends "student/baseperfil.html" %}
+{%load static%}
+{% block content %}
+            <!-- Table Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <h6 class="mb-4">Segundo Semestre</h6>
+                            <table class="table">
+
+    {%if user.is_authenticated %} <!--Para verificar si esta dentro-->
+    <h9> Hola "{{user.username}}", aquí puedes asignarte a tus cursos </h9> <!--Mostroar el nombre del usuario-->
+    {% endif %}
+    <h1>Lista de Cursos</h1>
+    <h1>Tus cursos asignados</h1>
+    <ul>
+      {% for curso in cursos_asignados %}
+        <li>
+          <h2>{{ curso.nombre }}</h2>
+          <p>Descripción: {{ curso.descripcion }}</p>
+          <p>Precio: {{ curso.precio }}</p>
+          <!-- Agrega cualquier otro detalle que desees mostrar -->
+        </li>
+      {% endfor %}
+    </ul>
+    
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "docente/baseperfil.html" %}
+{% load static %}
+{% block content %}
+
+            <!-- Table Start -->
+            <div class="container-fluid pt-4 px-4">
+              <div class="row g-4">
+                  <div class="">
+                      <div class="bg-secondary rounded h-100 p-4">
+                          <h6 class="mb-4">Detalles de tus cursos</h6>
+
+  <table class="table">
+
+
+      <tr>
+        <th>Curso</th>
+        <th>Estudiantes Inscritos</th>
+      </tr>
+      {% for curso_con_estudiantes in cursos_con_estudiantes %}
+      <tr>
+        <td>{{ curso_con_estudiantes.curso.nombre }}</td>
+        <td>
+          <ul>
+            {% for estudiante in curso_con_estudiantes.estudiantes_inscritos %}
+              <li>
+                <a href="{% url 'ver_detalles_estudiante' estudiante.id %}">
+                  {{ estudiante.first_name }} {{ estudiante.last_name }} 
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    
+    <a href="{% url 'exportar_excel' %}">Exportar a Excel</a>
+{% endblock %}

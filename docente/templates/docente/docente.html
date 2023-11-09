@@ -1,0 +1,122 @@
+{% extends "docente/baseperfil.html" %}
+{% load static %}
+{% block content %}
+
+{% if user_belongs_to_docente_group %}
+    <!-- El usuario pertenece al grupo "Docente", muestra contenido específico aquí -->
+    <p>Bienvenido, Docente.</p>
+    <!-- Otro contenido específico para docentes -->
+{% else %}
+    <!-- El usuario no pertenece al grupo "Docente", muestra otro contenido aquí -->
+    <p>No eres un docente.asd</p>
+{% endif %}
+
+
+            <!-- Sale & Revenue Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-3">
+
+
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="btn btn-lg btn-secondary m-2 rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-area fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <a href="{% url 'cursos_asignados'%}" class="">Cursos asignados</a>
+                                <h6 class="mb-0"></h6>
+                            </div>
+                        </div>
+                    </div>                    
+
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="btn btn-lg btn-secondary m-2 rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <a href="{% url 'perfil' %}" class="">Perfil</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="btn btn-lg btn-secondary m-2 rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-area fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <a href="{% url 'estudiantes_inscritos'%}" class="">Cursos</a>
+                                <h6 class="mb-0"></h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% if perms.estudiante.view_curso %}
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="btn btn-lg btn-secondary m-2 rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-area fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <a href="{% url 'listar_cursos'%}" class="">Listar cursos</a>
+                                <h6 class="mb-0"></h6>
+                            </div>
+                        </div>
+                    </div>{%endif %}
+
+                    {% if es_staff %}
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="btn btn-lg btn-secondary m-2 rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-area fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <a href="{% url 'listar_cursos'%}" class="">Listar cursos</a>
+                                <h6 class="mb-0"></h6>
+                            </div>
+                        </div>
+                    </div>{%endif %}
+
+
+                    {% if perms.estudiante.view_curso %}
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="btn btn-lg btn-secondary m-2 rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-area fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <a href="{% url 'registro2'%}" class="">Registrar Docente</a>
+                                <h6 class="mb-0"></h6>
+                            </div>
+                        </div>
+                    </div>{%endif %}
+ 
+                </div>
+            </div>
+            <!-- Sale & Revenue End -->
+
+
+            <!-- Widgets Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-12 col-md-6 col-xl-4">
+                        <div class="h-100 bg-secondary rounded p-4">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <h6 class="mb-0">Notificaciones</h6>
+                                <a href="#">Ver</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6 col-xl-4">
+                        <div class="h-100 bg-secondary rounded p-4">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h6 class="mb-0">Calendario</h6>
+                                <a href="#">Ver</a>
+                            </div>
+                            <div id="calender"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-xl-4">
+                        <div class="h-100 bg-secondary rounded p-4">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h6 class="mb-0">Tareas</h6>
+                                <a href="#">Ver</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Widgets End -->
+
+{% endblock %}            

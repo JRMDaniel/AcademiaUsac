@@ -1,0 +1,11 @@
+
+{% if user_belongs_to_estudiante_group %}
+    <!-- El usuario pertenece al grupo "Estudiante" -->
+    {% include "student/estudiante.html" %}
+{% elif user_belongs_to_docente_group %}
+    <!-- El usuario pertenece al grupo "Docente" -->
+    {% include "docente/docente.html" %}
+{% else %}
+    <!-- El usuario no pertenece a ninguno de los grupos específicos -->
+    {% include "admin/admin.html" %}
+{% endif %}

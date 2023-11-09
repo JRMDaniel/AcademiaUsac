@@ -1,0 +1,35 @@
+{% extends "student/baseperfil.html" %}
+{% load static %}
+{% block content %}
+
+            <!-- Table Start -->
+            <div class="container-fluid pt-4 px-4">
+              <div class="row g-4">
+                  <div class="">
+                      <div class="bg-secondary rounded h-100 p-4">
+                          <h6 class="mb-4">Detalles de tus cursos</h6>
+
+  <table class="table">
+    <tr>
+        <th>Nombre:</th>
+        <th>Descripción:</th>
+        <th>Precio:</th>
+        <th>Cupo Total:</th>
+        <th>Cupos Disponibles:</th>
+        <th>Docente:</th>
+        <th>Nota:</th>
+    </tr>
+
+    <tr>
+    <td>{{ curso.nombre }}</td>
+      <td>{{ curso.descripcion }}</td>
+      <td>Q{{ curso.precio }}</td>
+      <td>{{ curso.cupo }}</td>
+      <td>{{ curso.cupos_disponibles }}</td>
+      <td>{{ curso.docente }}</td>
+      <td>{{ nota.valor }} </td>
+  </tr>
+</table>
+
+  <a href="{% url 'cursos_del_usuario' %}">Volver a la lista de cursos</a>
+{% endblock %}
