@@ -98,8 +98,8 @@ DATABASES = {  #Conexión a base de datos postgres
         'NAME': 'pagina',
         'USER' : 'postgres',
         'PASSWORD': 'danny1234',
-        'HOST': 'db',
-        'PORT' : '',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
